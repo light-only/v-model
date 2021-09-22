@@ -71,6 +71,7 @@ class Vue{
                             //通过对this.data[attrValue]触发响应式
                             this._data[attrValue] = newValue;
                         })
+                        //处理v-html和v-text
                     }else if(attrName === 'v-html'){
                         node.innerHTML = this._data[attrValue];
                         //当观察的属性对应的值发生变化时，会触发set
