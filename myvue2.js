@@ -71,6 +71,17 @@ class Vue{
                             //通过对this.data[attrValue]触发响应式
                             this._data[attrValue] = newValue;
                         })
+                    }else if(attrName === 'v-html'){
+                        node.innerHTML = this._data[attrValue];
+                        //当观察的属性对应的值发生变化时，会触发set
+                        new Watcher(this._data,attrValue,newValue=>{
+                            node.innerHTML = newValue;
+                        })
+                    }else if(attrName === 'v-text'){
+                        node.innerText = this._data[attrValue];
+                        new Watcher(this._data,attrValue,newValue=>{
+                            node.innerText = newValue;
+                        })
                     }
                 })
                 if(node.childNodes.length >0){

@@ -9,20 +9,21 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="message"/>{{message}}
+        <!-- <input type="text" v-model="message"/>{{message}} -->
+        <div v-html="message"></div>
     </div>
     <script>
 
         let vue = new Vue({
             el:'#app',
             data:{
-                message:'数据'
+                message:'<h1>这是一个HTML</h1>'
             }
         })
         
         console.log(vue);
         setTimeout(()=>{
-            vue._data.message = '修改的值';
+            vue._data.message = '啊哈哈';
         },1000)
     </script>
 </body>
